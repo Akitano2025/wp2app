@@ -21,7 +21,7 @@ fun SoftwareCard(item: SoftwareItem) {
     Card(
         onClick = { 
             context.startActivity(
-                Intent(Intent.ACTION_VIEW, Uri.parse(item.downloadUrl))
+                Intent(Intent.ACTION_VIEW, Uri.parse(item.downloadUrl)))
         },
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
