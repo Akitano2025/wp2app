@@ -46,7 +46,7 @@ fun SoftwareCard(item: SoftwareItem) {
                 modifier = Modifier
                     .size(64.dp)
                     .clip(CircleShape)
-                    .padding(4.dp)
+                    .padding(0.dp)
             )
 
             // 文字内容部分
