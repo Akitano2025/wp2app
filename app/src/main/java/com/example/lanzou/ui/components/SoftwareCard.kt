@@ -17,35 +17,58 @@ import com.example.lanzou.model.SoftwareItem
 @Composable
 fun SoftwareCard(item: SoftwareItem) {
     val context = LocalContext.current
-    
+
     Card(
         onClick = { 
             context.startActivity(
-                Intent(Intent.ACTION_VIEW, Uri.parse(item.downloadUrl)))
+                Intent(Intent.ACTION_VIEW, Uri.parse(item.downloadUrl))
         },
-        elevation = CardDefaults.cardElevation(4.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        elevation = CardDefaults.cardElevation(4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
+        )
     ) {
-        Column(Modifier.padding(16.dp)) {
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+                .heightIn(min = 80.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            // 图标部分
             AsyncImage(
                 model = item.iconUrl,
                 contentDescription = null,
                 modifier = Modifier
                     .size(64.dp)
                     .clip(CircleShape)
+                    .padding(4.dp)
             )
-            
-            Text(
-                text = item.name,
-                style = MaterialTheme.typography.titleMedium,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-            Text(
-                text = item.description,
-                style = MaterialTheme.typography.bodySmall,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis
-            )
+
+            // 文字内容部分
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Text(
+                    text = item.name,
+                    style = MaterialTheme.typography.titleMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+
+                Text(
+                    text = item.description,
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
         }
     }
 }
