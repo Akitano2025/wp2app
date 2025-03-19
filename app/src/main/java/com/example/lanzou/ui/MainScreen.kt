@@ -9,7 +9,6 @@ import androidx.compose.ui.unit.dp
 import com.example.lanzou.model.SoftwareItem
 import com.example.lanzou.network.WebParser
 import com.example.lanzou.ui.components.SoftwareCard
-
 @Composable
 fun MainScreen() {
     var items by remember { mutableStateOf(emptyList<SoftwareItem>()) }
@@ -39,11 +38,11 @@ fun MainScreen() {
         ) {
             items(
                 items = filteredItems,
-                key = { it.downloadUrl } // 使用唯一标识作为key
+                key = { it.downloadUrl }
             ) { item ->
                 SoftwareCard(
                     item = item,
-                    modifier = Modifier.padding(4.dp)
+                    // 移除 modifier 参数，或在 SoftwareCard 组件中添加 modifier 参数
                 )
             }
         }
