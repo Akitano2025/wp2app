@@ -1,8 +1,11 @@
+<!-- app/src/main/res/values/themes.xml -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Material3 亮色主题 -->
-    <style name="Theme.Material3.DayNight" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryContainer">@color/purple_200</item>
-        <item name="colorOnPrimary">@color/white</item>
+    <!-- Base application theme -->
+    <style name="Theme.Lanzou" parent="Theme.Material3.DayNight">
+        <!-- 使用 Material3 默认颜色 -->
+        <item name="colorPrimary">@color/material_dynamic_primary40</item>
+        <item name="colorPrimaryContainer">@color/material_dynamic_primary90</item>
+        <item name="colorOnPrimary">@color/material_dynamic_primary100</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 </resources>
