@@ -35,7 +35,7 @@ fun SoftwareCard(item: SoftwareItem) {
         Row(
             modifier = Modifier
                 .padding(16.dp)
-                .heightIn(min = 80.dp),
+                .heightIn(min = 48.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
@@ -44,7 +44,7 @@ fun SoftwareCard(item: SoftwareItem) {
                 model = item.iconUrl,
                 contentDescription = null,
                 modifier = Modifier
-                    .size(64.dp)
+                    .size(48.dp)
                     .clip(CircleShape)
                     .padding(0.dp)
             )
