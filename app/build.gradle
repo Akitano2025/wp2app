@@ -1,6 +1,7 @@
+// app/build.gradle
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.android' // 添加这个插件
 }
 
 android {
@@ -21,6 +22,15 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion "1.5.3"
+    }
+
+    // 添加 Java 17 兼容性
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
     }
 }
 
