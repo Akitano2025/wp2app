@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">甜糖资源库</string>
+    <string name="search_hint">输入软件名称...</string>
+    <string name="error_loading">加载失败</string>
+</resources>
