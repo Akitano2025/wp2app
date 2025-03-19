@@ -19,6 +19,11 @@ fun MainScreen() {
         items = WebParser().parseData("https://lanzoux.top")
     }
 
+    val filteredItems = items.filter {
+        it.name.contains(searchText, ignoreCase = true) ||
+        it.description.contains(searchText, ignoreCase = true)
+    }
+
     Column(Modifier.padding(16.dp)) {
         TextField(
             value = searchText,
@@ -32,10 +37,14 @@ fun MainScreen() {
             verticalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
-            items(items.filter { 
-                it.name.contains(searchText, true) 
-            }.size) { index ->
-                SoftwareCard(item = items[index])
+            items(
+                items = filteredItems,
+                key = { it.downloadUrl } // 使用唯一标识作为key
+            ) { item ->
+                SoftwareCard(
+                    item = item,
+                    modifier = Modifier.padding(4.dp)
+                )
             }
         }
     }
