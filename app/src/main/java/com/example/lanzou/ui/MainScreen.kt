@@ -1,5 +1,5 @@
 // MainScreen.kt
-package com.example.app.ui
+package com.example.lanzou.ui
 
 import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
