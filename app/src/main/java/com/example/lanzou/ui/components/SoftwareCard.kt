@@ -13,7 +13,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.lanzou.model.SoftwareItem
-
+// 在文件顶部添加
+import androidx.compose.ui.Alignment
 @Composable
 fun SoftwareCard(item: SoftwareItem) {
     val context = LocalContext.current
@@ -21,7 +22,7 @@ fun SoftwareCard(item: SoftwareItem) {
     Card(
         onClick = { 
             context.startActivity(
-                Intent(Intent.ACTION_VIEW, Uri.parse(item.downloadUrl))
+                Intent(Intent.ACTION_VIEW, Uri.parse(item.downloadUrl)))
         },
         modifier = Modifier
             .fillMaxWidth()
