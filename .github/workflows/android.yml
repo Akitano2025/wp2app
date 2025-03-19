@@ -3,18 +3,17 @@ name: Android CI
 on:
   push:
     branches: [ "main" ]
-
-permissions:
-  contents: write  # 必须显式声明写入权限
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    
-    - name: Set up JDK 17
+    - name: set up JDK 11
       uses: actions/setup-java@v4
       with:
         java-version: '17'
@@ -23,18 +22,13 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    
-    - name: Build Release APK
-      run: ./gradlew assembleRelease --stacktrace
-    
-    - name: Upload to GitHub Release
-      uses: softprops/action-gh-release@v1
+    - name: Build with Gradle
+      run: ./gradlew build --stacktrace
+      
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
       with:
-        tag_name: release-$(date +%Y%m%d%H%M%S)
-        name: Release $(date +'%Y-%m-%d %H:%M')
-        files: app/build/outputs/apk/release/*.apk
-        generate_release_notes: true
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: apk-artifacts
+        path: |
+          app/build/outputs/apk/**/*.apk
+          app/build/outputs/bundle/**/*.aab
