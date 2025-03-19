@@ -1,6 +1,11 @@
 // MainScreen.kt
 package com.example.lanzou.ui
-
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
+import com.example.lanzou.network.WebParser
+import com.example.lanzou.model.SoftwareItem
 import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
