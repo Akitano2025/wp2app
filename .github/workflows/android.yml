@@ -3,8 +3,9 @@ name: Android CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+
+permissions:
+  contents: write  # 必须显式声明写入权限
 
 jobs:
   build:
@@ -26,16 +27,14 @@ jobs:
     - name: Build Release APK
       run: ./gradlew assembleRelease --stacktrace
     
-    - name: Get current timestamp
-      id: timestamp
-      run: echo "TIME=$(date +'%Y%m%d%H%M')" >> $GITHUB_OUTPUT
-    
     - name: Upload to GitHub Release
       uses: softprops/action-gh-release@v1
-      if: success()
       with:
-        tag_name: release-${{ steps.timestamp.outputs.TIME }}
+        tag_name: release-$(date +%Y%m%d%H%M%S)
+        name: Release $(date +'%Y-%m-%d %H:%M')
         files: app/build/outputs/apk/release/*.apk
         generate_release_notes: true
+        draft: false
+        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
