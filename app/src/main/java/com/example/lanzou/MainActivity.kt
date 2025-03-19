@@ -1,3 +1,4 @@
+package com.example.lanzou
 import androidx.activity.ComponentActivity
 import android.os.Bundle
 import androidx.annotation.CallSuper
