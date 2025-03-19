@@ -4,6 +4,7 @@ import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*
 import io.ktor.client.plugins.*
 import io.ktor.client.request.*
+import io.ktor.client.statement.*  // 添加导入
 import io.ktor.http.*
 import org.jsoup.Jsoup
 import com.example.lanzou.model.SoftwareItem
@@ -16,7 +17,8 @@ class WebParser {
     }
 
     suspend fun parseData(url: String): List<SoftwareItem> {
-        val html = client.get(url).body<String>()
+        val response = client.get(url)
+        val html = response.body<String>()  // 正确获取响应内容
         return Jsoup.parse(html).select(".xe-card").map { element ->
             SoftwareItem(
                 name = element.select("strong").text(),
