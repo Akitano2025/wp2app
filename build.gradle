@@ -1,6 +1,5 @@
 // 项目根目录的 build.gradle
 buildscript {
-org.gradle.jvmargs=-Xmx4096m -XX:MaxPermSize=1024m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
     ext {
         kotlin_version = '1.9.21' // 与 Compose 兼容的版本
     }
