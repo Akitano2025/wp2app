@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.lanzou.model.SoftwareItem
@@ -31,12 +32,20 @@ fun SoftwareCard(item: SoftwareItem) {
                 modifier = Modifier
                     .size(64.dp)
                     .clip(CircleShape)
+            )
             
-            Text(item.name, style = MaterialTheme.typography.titleMedium)
-            Text(item.description, 
+            Text(
+                text = item.name,
+                style = MaterialTheme.typography.titleMedium,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Text(
+                text = item.description,
                 style = MaterialTheme.typography.bodySmall,
                 maxLines = 2,
-                overflow = TextOverflow.Ellipsis)
+                overflow = TextOverflow.Ellipsis
+            )
         }
     }
 }
