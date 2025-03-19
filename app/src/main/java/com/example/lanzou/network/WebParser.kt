@@ -7,6 +7,9 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import org.jsoup.Jsoup
 import java.net.URLEncoder
+import com.squareup.okhttp3.OkHttpClient  // 需要添加okhttp依赖
+import com.example.lanzou.model.SoftwareItem  // 需要创建对应的数据类
+import com.example.lanzou.util.useragent  // 需要确认useragent的来源
 class WebParser {
     private val client = HttpClient()
 
