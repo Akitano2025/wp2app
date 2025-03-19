@@ -29,7 +29,7 @@ fun MainScreen() {
 
         LazyVerticalGrid(
             columns = GridCells.Adaptive(300.dp),
-            verticalArrangement = Arrangement.spacedBy(20.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
             items(items.filter { 
