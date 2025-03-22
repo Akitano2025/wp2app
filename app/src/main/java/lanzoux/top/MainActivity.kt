@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
             webViewClient = object : WebViewClient() {
                 override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                    return if (url?.startsWith("https://akitano.com/") == true) {
+                    return if (url?.startsWith("https://lanzoux.top/") == true) {
                         false
                     } else {
                         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            loadUrl("https://akitano.com/")
+            loadUrl("https://lanzoux.top/")
         }
     }
 }
