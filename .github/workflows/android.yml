@@ -2,9 +2,9 @@ name: Android CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "lanzoux_top" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "lanzoux_top" ]
 
 jobs:
   build:
