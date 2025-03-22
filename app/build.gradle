@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'lanzoux.top'
-    compileSdk 35
+    compileSdk 34
 
     defaultConfig {
         applicationId "lanzoux.top"
         minSdk 21
-        targetSdk 35
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
